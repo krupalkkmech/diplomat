@@ -32,7 +32,7 @@ defmodule Diplomat.Entity.AllocateIdsTest do
   test "allocating ids", %{bypass: bypass} do
     count = 20
     kind = "Log"
-    {:ok, project} = Application.get_env(:diplomat, :project_id)
+    project = Application.get_env(:diplomat, :project_id)
 
     Bypass.expect(bypass, fn conn ->
       assert Regex.match?(~r{/v1/projects/#{project}:allocateIds}, conn.request_path)
