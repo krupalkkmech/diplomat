@@ -44,7 +44,7 @@ defmodule Diplomat.Entity.InsertTest do
   end
 
   test "inserting a single entity", %{bypass: bypass} do
-    {:ok, project} = Goth.Config.get(:project_id)
+    {:ok, project} = System.get_env("NEW_PROJECT_ID")
     {kind, name} = {"TestBook", "my-book-unique-id"}
 
     entity =
