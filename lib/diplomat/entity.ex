@@ -158,7 +158,7 @@ defmodule Diplomat.Entity do
   end
 
   @spec insert([t] | t) :: [Key.t()] | Client.error()
-  def insert(%Entity{} = entity), do: insert([entity])
+  def insert(%Entity{} = entity, project_id \\ nil), do: insert([entity])
 
   def insert(entities, project_id \\ nil) when is_list(entities) do
     entities
@@ -173,7 +173,7 @@ defmodule Diplomat.Entity do
 
   # at some point we should validate the entity keys
   @spec upsert([t] | t) :: {:ok, CommitResponse.t()} | Client.error()
-  def upsert(%Entity{} = entity), do: upsert([entity])
+  def upsert(%Entity{} = entity, project_id \\ nil), do: upsert([entity])
 
   def upsert(entities, project_id \\ nil) when is_list(entities) do
     entities
