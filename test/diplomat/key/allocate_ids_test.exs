@@ -32,7 +32,7 @@ defmodule Diplomat.Entity.AllocateIdsTest do
   test "allocating ids", %{bypass: bypass} do
     count = 20
     kind = "Log"
-    {:ok, project} = Goth.Config.get(:project_id)
+    {:ok, project} = System.get_env("NEW_PROJECT_ID")
 
     Bypass.expect(bypass, fn conn ->
       assert Regex.match?(~r{/v1/projects/#{project}:allocateIds}, conn.request_path)
