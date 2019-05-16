@@ -13,7 +13,7 @@ defmodule Diplomat.Entity.UpsertTest do
   test "upserting a single Entity", %{bypass: bypass} do
     # entity = Entity.new(%{title: "20k Leagues", author: "Jules Verne"}, "Book", "20k-key")
 
-    {:ok, project} = Goth.Config.get(:project_id)
+    {:ok, project} = System.get_env("NEW_PROJECT_ID")
     {kind, name} = {"TestBook", "my-book-unique-id"}
 
     entity =
