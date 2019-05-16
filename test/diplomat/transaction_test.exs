@@ -9,7 +9,7 @@ defmodule Diplomat.TransactionTest do
   setup do
     bypass = Bypass.open()
     Application.put_env(:diplomat, :endpoint, "http://localhost:#{bypass.port}")
-    {:ok, project} = System.get_env("NEW_PROJECT_ID")
+    {:ok, project} = Application.get_env(:diplomat, :project_id)
     {:ok, bypass: bypass, project: project}
   end
 

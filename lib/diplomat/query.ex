@@ -43,7 +43,7 @@ defmodule Diplomat.Query do
 
   @spec execute(t, String.t() | nil) :: [Entity.t()] | Client.error()
   def execute(%__MODULE__{} = q, namespace \\ nil) do
-    {:ok, project} = System.get_env("NEW_PROJECT_ID")
+    {:ok, project} = Application.get_env(:diplomat, :project_id)
 
     RunQueryRequest.new(
       query_type: {:gql_query, q |> Query.proto()},
