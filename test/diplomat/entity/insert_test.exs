@@ -44,7 +44,7 @@ defmodule Diplomat.Entity.InsertTest do
   end
 
   test "inserting a single entity", %{bypass: bypass} do
-    {:ok, project} = Application.get_env(:diplomat, :project_id)
+    project = Application.get_env(:diplomat, :project_id)
     {kind, name} = {"TestBook", "my-book-unique-id"}
 
     entity =

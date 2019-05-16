@@ -147,7 +147,7 @@ defmodule Diplomat.Client do
   defp token_module, do: Application.get_env(:diplomat, :token_module, Goth.Token)
 
   defp project do
-    {:ok, project_id} = Application.get_env(:diplomat, :project_id)
+    project_id= Application.get_env(:diplomat, :project_id)
     project_id
   end
 
